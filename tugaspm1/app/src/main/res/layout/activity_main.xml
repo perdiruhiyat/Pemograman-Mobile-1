@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="435dp"
+        android:layout_height="337dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.698">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Pilih Hewan"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgCapybara"
+                            android:layout_width="match_parent"
+                            android:layout_height="220dp"
+                            android:contentDescription="Capybara"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/capybara" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingTop="8dp"
+                            android:text="Capybara"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgKucing"
+                            android:layout_width="match_parent"
+                            android:layout_height="220dp"
+                            android:contentDescription="Kucing"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/kucing" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingTop="8dp"
+                            android:text="Kucing"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgKuda"
+                            android:layout_width="match_parent"
+                            android:layout_height="220dp"
+                            android:contentDescription="Kuda"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/kuda" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingTop="8dp"
+                            android:text="Kuda"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/imgMonyet"
+                            android:layout_width="match_parent"
+                            android:layout_height="220dp"
+                            android:contentDescription="Monyet"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/monyet" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingTop="8dp"
+                            android:text="Monyet"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Selamat Datang!"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="Anif Burhanudin - 23552011075"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.133"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:text="Perdi Ruhiyat - 23552011207"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.109"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
