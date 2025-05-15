@@ -1,24 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DashboardActivity">
+    android:layout_height="match_parent">
+
+    <!-- Salam dan Saldo -->
+    <TextView
+        android:id="@+id/textNamaUser"
+        android:text="Halo, User"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/appTitle"
+        android:id="@+id/totalSaldo"
+        android:text="Total Saldo: Rp 0"
+        android:textSize="18sp"
+        android:textColor="#388E3C"
+        android:layout_marginBottom="16dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="Ini dashboard"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Tombol Pemasukan & Pengeluaran -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPemasukan"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:padding="16dp"
+            app:cardCornerRadius="8dp">
+
+            <TextView
+                android:text="Pemasukan"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPengeluaran"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:padding="16dp"
+            app:cardCornerRadius="8dp">
+
+            <TextView
+                android:text="Pengeluaran"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <!-- Title Mutasi -->
+    <TextView
+        android:text="Mutasi Transaksi"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- RecyclerView untuk mutasi -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMutasi"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

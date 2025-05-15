@@ -46,5 +46,11 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
+        Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+        intent.putExtra("name", getComponentName());
+        startActivity(intent);
+    }
+
+    public static class Pemasukan {
     }
 }
