@@ -40,7 +40,6 @@ public class PemasukanActivity extends AppCompatActivity {
         transaksiList = getIntent().getParcelableArrayListExtra("transaksiList");
         if (transaksiList == null) transaksiList = new ArrayList<>();
 
-        // Set DatePicker ketika inputTanggal diklik
         inputTanggal.setOnClickListener(v -> showDatePicker());
 
         btnSimpan.setOnClickListener(v -> {
@@ -48,11 +47,9 @@ public class PemasukanActivity extends AppCompatActivity {
             String tanggal = inputTanggal.getText().toString();
             String sumber = inputSumber.getText().toString();
 
-            // Tambah saldo dan simpan transaksi
             saldo += uangMasuk;
             transaksiList.add(new Transaksi(tanggal, uangMasuk, sumber, true));
 
-            // Kembali ke dashboard dengan data baru
             Intent intent = new Intent(PemasukanActivity.this, DashboardActivity.class);
             intent.putExtra("name", name);
             intent.putExtra("saldo", saldo);

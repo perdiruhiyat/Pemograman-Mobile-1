@@ -5,7 +5,6 @@
     <color name="colorBackground">#FFFFFF</color>
     <color name="colorOnBackground">#000000</color>
 
-    <!-- Warna tambahan (opsional tapi disarankan) -->
     <color name="purple_200">#BB86FC</color>
     <color name="purple_500">#6200EE</color>
     <color name="purple_700">#3700B3</color>

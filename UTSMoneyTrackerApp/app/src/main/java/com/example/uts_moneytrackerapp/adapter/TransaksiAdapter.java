@@ -1,5 +1,6 @@
 package com.example.uts_moneytrackerapp.adapter;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,13 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.View
         holder.textJenis.setText(jenis);
 
         String prefix = isPemasukan ? "+ Rp " : "- Rp ";
-        holder.textJumlah.setText(prefix + jumlah);
+        holder.textJumlah.setText(prefix + String.format("%,.0f", jumlah));
+
+        if (isPemasukan) {
+            holder.textJumlah.setTextColor(Color.parseColor("#4CAF50")); // Hijau
+        } else {
+            holder.textJumlah.setTextColor(Color.parseColor("#F44336")); // Merah
+        }
     }
 
     @Override

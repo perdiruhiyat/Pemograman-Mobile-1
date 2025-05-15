@@ -2,49 +2,76 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="#FFFFFF">
+    android:background="#FAFAFA"
+    android:padding="24dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transaksi Pemasukan"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:layout_marginBottom="24dp" />
+
         <EditText
             android:id="@+id/inputTanggal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:hint="Tanggal"
             android:focusable="false"
             android:clickable="true"
             android:inputType="none"
-            android:backgroundTint="@color/black"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp"/>
+            android:background="@drawable/bg_edittext_rounded"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#212121"
+            android:textSize="16sp"
+            android:layout_marginBottom="20dp" />
 
         <EditText
             android:id="@+id/inputJumlah"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:hint="Jumlah Pemasukan"
-            android:inputType="number"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp"/>
+            android:inputType="numberDecimal"
+            android:background="@drawable/bg_edittext_rounded"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#212121"
+            android:textSize="16sp"
+            android:layout_marginBottom="20dp" />
 
         <EditText
             android:id="@+id/inputSumber"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:hint="Sumber Uang"
-            android:padding="12dp"
-            android:layout_marginBottom="24dp"/>
+            android:background="@drawable/bg_edittext_rounded"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="#212121"
+            android:textSize="16sp"
+            android:layout_marginBottom="32dp" />
 
         <Button
             android:id="@+id/btnSimpan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="Simpan"
             android:backgroundTint="#4CAF50"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:elevation="4dp"
+            android:stateListAnimator="@null"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif-medium"/>
+
     </LinearLayout>
 </ScrollView>

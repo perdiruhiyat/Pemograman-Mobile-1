@@ -16,7 +16,7 @@ import java.util.Calendar;
 
 public class PengeluaranActivity extends AppCompatActivity {
 
-    EditText inputTanggal, inputJumlah, inputAlasan;
+    EditText inputTanggal, inputJumlah, inputKeterangan;
     Button btnSimpan;
     String name;
     float saldo;
@@ -33,7 +33,7 @@ public class PengeluaranActivity extends AppCompatActivity {
 
         inputTanggal = findViewById(R.id.inputTanggal);
         inputJumlah = findViewById(R.id.inputJumlah);
-        inputAlasan = findViewById(R.id.inputAlasan);
+        inputKeterangan = findViewById(R.id.inputKeterangan);
         btnSimpan = findViewById(R.id.btnSimpan);
 
         name = getIntent().getStringExtra("name");
@@ -47,15 +47,13 @@ public class PengeluaranActivity extends AppCompatActivity {
 
         btnSimpan.setOnClickListener(v -> {
             String tanggal = inputTanggal.getText().toString();
-            String alasan = inputAlasan.getText().toString();
+            String alasan = inputKeterangan.getText().toString();
             float jumlahPengeluaran = Float.parseFloat(inputJumlah.getText().toString());
 
-            // Kurangi saldo dan simpan transaksi
             saldo -= jumlahPengeluaran;
             Transaksi transaksi = new Transaksi(tanggal, jumlahPengeluaran, alasan, false);
             transaksiList.add(transaksi);
 
-            // Kembali ke dashboard
             Intent intent = new Intent(PengeluaranActivity.this, DashboardActivity.class);
             intent.putExtra("name", name);
             intent.putExtra("saldo", saldo);

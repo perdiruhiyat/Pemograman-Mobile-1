@@ -41,23 +41,19 @@ public class DashboardActivity extends AppCompatActivity {
             transaksiList = new ArrayList<>();
         }
 
-        // Init view
         textNamaUser = findViewById(R.id.textNamaUser);
         totalSaldo = findViewById(R.id.totalSaldo);
         cardPemasukan = findViewById(R.id.cardPemasukan);
         cardPengeluaran = findViewById(R.id.cardPengeluaran);
         recyclerView = findViewById(R.id.recyclerViewMutasi);
 
-        // Set text
         textNamaUser.setText("Halo, " + name);
-        totalSaldo.setText(String.format("Total Saldo: Rp %.2f", saldo));
+        totalSaldo.setText(String.format("Rp %,.0f", saldo));
 
-        // RecyclerView setup
         adapter = new TransaksiAdapter(transaksiList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        // Click listeners
         cardPemasukan.setOnClickListener(v -> {
             Intent i = new Intent(DashboardActivity.this, PemasukanActivity.class);
             i.putExtra("name", name);
@@ -81,7 +77,7 @@ public class DashboardActivity extends AppCompatActivity {
             Intent logoutIntent = new Intent(DashboardActivity.this, LoginActivity.class);
             logoutIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(logoutIntent);
-            finish(); //
+            finish();
         });
 
     }
