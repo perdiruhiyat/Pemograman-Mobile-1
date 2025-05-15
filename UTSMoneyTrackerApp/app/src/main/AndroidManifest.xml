@@ -30,6 +30,10 @@
         <activity android:name=".PemasukanActivity" />
         <activity android:name=".PengeluaranActivity" />
 
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

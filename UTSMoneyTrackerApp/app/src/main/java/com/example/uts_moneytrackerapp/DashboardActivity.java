@@ -19,17 +19,19 @@ public class DashboardActivity extends AppCompatActivity {
     private TransaksiAdapter adapter;
     private ArrayList<Transaksi> transaksiList;
     private String name;
-    private int saldo;
+    private float saldo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
         // Get data
         Intent intent = getIntent();
-        name = intent.getStringExtra("username");
-        saldo = intent.getIntExtra("saldo", 0);
+        name = intent.getStringExtra("name");
+        saldo = intent.getFloatExtra("saldo", 0);
         transaksiList = intent.getParcelableArrayListExtra("transaksiList");
         if (transaksiList == null) {
             transaksiList = new ArrayList<>();
@@ -44,7 +46,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         // Set text
         textNamaUser.setText("Halo, " + name);
-        totalSaldo.setText("Total Saldo: Rp " + saldo);
+        totalSaldo.setText(String.format("Total Saldo: Rp %.2f", saldo));
 
         // RecyclerView setup
         adapter = new TransaksiAdapter(transaksiList);
@@ -54,7 +56,7 @@ public class DashboardActivity extends AppCompatActivity {
         // Click listeners
         cardPemasukan.setOnClickListener(v -> {
             Intent i = new Intent(DashboardActivity.this, PemasukanActivity.class);
-            i.putExtra("username", name);
+            i.putExtra("name", name);
             i.putExtra("saldo", saldo);
             i.putParcelableArrayListExtra("transaksiList", transaksiList);
             startActivity(i);
@@ -63,7 +65,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         cardPengeluaran.setOnClickListener(v -> {
             Intent i = new Intent(DashboardActivity.this, PengeluaranActivity.class);
-            i.putExtra("username", name);
+            i.putExtra("name", name);
             i.putExtra("saldo", saldo);
             i.putParcelableArrayListExtra("transaksiList", transaksiList);
             startActivity(i);

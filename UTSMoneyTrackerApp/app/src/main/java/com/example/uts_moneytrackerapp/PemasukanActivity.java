@@ -17,8 +17,8 @@ public class PemasukanActivity extends AppCompatActivity {
 
     EditText inputTanggal, inputJumlah, inputSumber;
     Button btnSimpan;
-    String namaUser;
-    int saldo;
+    String name;
+    float saldo;
     ArrayList<Transaksi> transaksiList;
 
     @Override
@@ -26,13 +26,17 @@ public class PemasukanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pemasukan);
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
         inputTanggal = findViewById(R.id.inputTanggal);
         inputJumlah = findViewById(R.id.inputJumlah);
         inputSumber = findViewById(R.id.inputSumber);
         btnSimpan = findViewById(R.id.btnSimpan);
 
-        namaUser = getIntent().getStringExtra("username");
-        saldo = getIntent().getIntExtra("saldo", 0);
+        name = getIntent().getStringExtra("name");
+        saldo = getIntent().getFloatExtra("saldo", 0);
         transaksiList = getIntent().getParcelableArrayListExtra("transaksiList");
         if (transaksiList == null) transaksiList = new ArrayList<>();
 
@@ -40,7 +44,7 @@ public class PemasukanActivity extends AppCompatActivity {
         inputTanggal.setOnClickListener(v -> showDatePicker());
 
         btnSimpan.setOnClickListener(v -> {
-            int uangMasuk = Integer.parseInt(inputJumlah.getText().toString());
+            float uangMasuk = Float.parseFloat(inputJumlah.getText().toString());
             String tanggal = inputTanggal.getText().toString();
             String sumber = inputSumber.getText().toString();
 
@@ -50,7 +54,7 @@ public class PemasukanActivity extends AppCompatActivity {
 
             // Kembali ke dashboard dengan data baru
             Intent intent = new Intent(PemasukanActivity.this, DashboardActivity.class);
-            intent.putExtra("username", namaUser);
+            intent.putExtra("name", name);
             intent.putExtra("saldo", saldo);
             intent.putParcelableArrayListExtra("transaksiList", transaksiList);
             startActivity(intent);

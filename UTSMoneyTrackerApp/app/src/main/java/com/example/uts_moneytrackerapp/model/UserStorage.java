@@ -27,4 +27,13 @@ public class UserStorage {
         }
         return false;
     }
+
+    public static String getNameByEmail(String email) {
+        for (User u : userList) {
+            if (u.getEmail().equals(email)) {
+                return u.getName();
+            }
+        }
+        return "";
+    }
 }

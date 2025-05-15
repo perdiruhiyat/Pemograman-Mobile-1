@@ -31,7 +31,7 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiAdapter.View
         Transaksi transaksi = transaksiList.get(position);
         holder.textTanggal.setText(transaksi.getTanggal());
         holder.textKeterangan.setText(transaksi.getKeterangan());
-        int jumlah = transaksi.getJumlah();
+        float jumlah = transaksi.getJumlah();
         boolean isPemasukan = transaksi.isPemasukan();
 
         String jenis = isPemasukan ? "Pemasukan" : "Pengeluaran";

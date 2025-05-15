@@ -5,11 +5,11 @@ import android.os.Parcelable;
 
 public class Transaksi implements Parcelable {
     private String tanggal;
-    private int jumlah;
+    private float jumlah;
     private String keterangan;
     private boolean isPemasukan;
 
-    public Transaksi(String tanggal, int jumlah, String keterangan, boolean isPemasukan) {
+    public Transaksi(String tanggal, float jumlah, String keterangan, boolean isPemasukan) {
         this.tanggal = tanggal;
         this.jumlah = jumlah;
         this.keterangan = keterangan;
@@ -18,7 +18,7 @@ public class Transaksi implements Parcelable {
 
     protected Transaksi(Parcel in) {
         tanggal = in.readString();
-        jumlah = in.readInt();
+        jumlah = in.readFloat();
         keterangan = in.readString();
         isPemasukan = in.readByte() != 0;
     }
@@ -39,7 +39,7 @@ public class Transaksi implements Parcelable {
         return tanggal;
     }
 
-    public int getJumlah() {
+    public float getJumlah() {
         return jumlah;
     }
 
@@ -59,7 +59,7 @@ public class Transaksi implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int flags) {
         parcel.writeString(tanggal);
-        parcel.writeInt(jumlah);
+        parcel.writeFloat(jumlah);
         parcel.writeString(keterangan);
         parcel.writeByte((byte) (isPemasukan ? 1 : 0));
     }

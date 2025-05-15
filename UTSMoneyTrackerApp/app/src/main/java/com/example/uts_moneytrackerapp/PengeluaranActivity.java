@@ -18,8 +18,8 @@ public class PengeluaranActivity extends AppCompatActivity {
 
     EditText inputTanggal, inputJumlah, inputAlasan;
     Button btnSimpan;
-    String namaUser;
-    int saldo;
+    String name;
+    float saldo;
     ArrayList<Transaksi> transaksiList;
 
     @Override
@@ -27,13 +27,17 @@ public class PengeluaranActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pengeluaran);
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
         inputTanggal = findViewById(R.id.inputTanggal);
         inputJumlah = findViewById(R.id.inputJumlah);
         inputAlasan = findViewById(R.id.inputAlasan);
         btnSimpan = findViewById(R.id.btnSimpan);
 
-        namaUser = getIntent().getStringExtra("username");
-        saldo = getIntent().getIntExtra("saldo", 0);
+        name = getIntent().getStringExtra("name");
+        saldo = getIntent().getFloatExtra("saldo", 0);
         transaksiList = getIntent().getParcelableArrayListExtra("transaksiList");
         if (transaksiList == null) {
             transaksiList = new ArrayList<>();
@@ -44,7 +48,7 @@ public class PengeluaranActivity extends AppCompatActivity {
         btnSimpan.setOnClickListener(v -> {
             String tanggal = inputTanggal.getText().toString();
             String alasan = inputAlasan.getText().toString();
-            int jumlahPengeluaran = Integer.parseInt(inputJumlah.getText().toString());
+            float jumlahPengeluaran = Float.parseFloat(inputJumlah.getText().toString());
 
             // Kurangi saldo dan simpan transaksi
             saldo -= jumlahPengeluaran;
@@ -53,7 +57,7 @@ public class PengeluaranActivity extends AppCompatActivity {
 
             // Kembali ke dashboard
             Intent intent = new Intent(PengeluaranActivity.this, DashboardActivity.class);
-            intent.putExtra("username", namaUser);
+            intent.putExtra("name", name);
             intent.putExtra("saldo", saldo);
             intent.putParcelableArrayListExtra("transaksiList", transaksiList);
             startActivity(intent);
