@@ -58,7 +58,7 @@ public class PemasukanActivity extends AppCompatActivity {
             intent.putExtra("saldo", saldo);
             intent.putParcelableArrayListExtra("transaksiList", transaksiList);
             startActivity(intent);
-            finish();
+
         });
     }
 

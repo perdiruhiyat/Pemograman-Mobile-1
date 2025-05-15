@@ -1,0 +1,11 @@
+<resources>
+    <color name="colorPrimary">#BB86FC</color>
+    <color name="colorPrimaryVariant">#3700B3</color>
+    <color name="colorOnPrimary">#000000</color>
+    <color name="colorBackground">#121212</color>
+    <color name="colorOnBackground">#FFFFFF</color>
+
+    <!-- Tambahan opsional -->
+    <color name="black">#FFFFFF</color> <!-- teks terang -->
+    <color name="white">#000000</color> <!-- background gelap -->
+</resources>

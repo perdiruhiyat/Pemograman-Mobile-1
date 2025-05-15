@@ -2,6 +2,7 @@ package com.example.uts_moneytrackerapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -20,6 +21,9 @@ public class DashboardActivity extends AppCompatActivity {
     private ArrayList<Transaksi> transaksiList;
     private String name;
     private float saldo;
+
+    private Button btnLogout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +64,7 @@ public class DashboardActivity extends AppCompatActivity {
             i.putExtra("saldo", saldo);
             i.putParcelableArrayListExtra("transaksiList", transaksiList);
             startActivity(i);
-            finish();
+
         });
 
         cardPengeluaran.setOnClickListener(v -> {
@@ -69,7 +73,16 @@ public class DashboardActivity extends AppCompatActivity {
             i.putExtra("saldo", saldo);
             i.putParcelableArrayListExtra("transaksiList", transaksiList);
             startActivity(i);
-            finish();
+
         });
+        btnLogout = findViewById(R.id.btnLogout);
+
+        btnLogout.setOnClickListener(v -> {
+            Intent logoutIntent = new Intent(DashboardActivity.this, LoginActivity.class);
+            logoutIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(logoutIntent);
+            finish(); //
+        });
+
     }
 }
